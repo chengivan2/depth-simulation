@@ -1,4 +1,4 @@
-# Savings Goal Tracker UI
+# Depth Simulation Using Savings Goal Tracker UI
 
 A modern, visually polished savings goal display component featuring a 3D depth effect. This component showcases a piggy bank icon with a savings amount displayed within an elegant circular white ring on a deep purple gradient background.
 
