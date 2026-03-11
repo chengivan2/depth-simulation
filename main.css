@@ -1,0 +1,68 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #300099 0%, #1a0055 100%);
+  --ring-white: #ffffff;
+}
+
+.container {
+  background: var(--bg-gradient);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.depth-ring {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  /* Using a thick border creates the ring shape */
+  border: 24px solid var(--ring-white);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* LAYERED SHADOWS:
+     1. Outer Shadow (The "Lift"): A soft, dark drop shadow below.
+     2. Inner Shadow Top (Depth): Makes the purple center look 'sunken'.
+     3. Inner Shadow Ring (Bevel): Gives the white plastic a rounded feel.
+  */
+  box-shadow: 
+    /* Outer Shadow (Drop Shadow) */
+    0px 20px 40px rgba(0, 0, 0, 0.4),
+    /* Inner shadow on the ring's outer edge (Subtle Bevel) */
+    inset 0px 4px 6px rgba(255, 255, 255, 0.5),
+    /* Inner shadow on the ring's inner edge (The "Sunken" effect) */
+    inset 0px -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* To get that heavy shadow INSIDE the ring onto the purple background: */
+.depth-ring::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  /* This creates the shadow falling onto the purple center */
+  box-shadow: inset 0px 15px 20px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.content {
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+  z-index: 1;
+}
+
+.icon-circle {
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.amount {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
